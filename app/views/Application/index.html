@@ -1,0 +1,337 @@
+ 
+ 
+ 
+ 
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Papeleria mega popular </title>
+
+<link rel="stylesheet" media="screen"href="@{'/public/stylesheets/bootstrap.css'}">
+<link rel="stylesheet" media="screen"href="@{'/public/stylesheets/estilo_slider.css'}">
+
+<script src="@{'public/javascripts/jquery1.js'}"></script>    <!-- controlador de imagenes -->
+<script src="@{'public/javascripts/controlador.js'}"></script>    <!-- controlador de imagenes -->
+
+
+<script src="@{'public/javascripts/jquery.min.js'}"></script>
+	    <script src="@{'public/javascripts/main.js'}"></script>    <!-- controlador de imagenes -->
+
+<link rel="stylesheet" href="@{'/public/stylesheets/main.css'}"> 
+	  
+	      <link rel="stylesheet" href="@{'/public/stylesheets/main.css'}"> 
+
+
+
+
+<style type="text/css">
+
+#body{
+ background:url("@{'public/images/logopopular.png'}") no-repeat center center fixed;
+
+}
+
+#titulo{
+
+background-color:black ;
+		    color:blue;
+		    text-align:center;
+		    padding:5px;
+		    
+}
+
+
+
+
+#seccion_izquierda{
+ 	padding:5px;
+		     
+background-color:white;
+		    color:black;
+		    text-align:center;
+		    padding:5px;
+		     width: 40%;
+		   
+		    float:right;
+		    padding:10px;
+
+}
+
+#seccion_derecha{
+background-color:white;
+		    color:black;
+		    text-align:center;
+		    padding:5px;
+		     height: 45%;
+		     
+		     width: 40%;
+		     float: right;
+
+		     
+		    
+}
+
+
+#seccion_slider{
+background-color:white;
+		    color:black;
+		    text-align:center;
+		    padding:5px;
+		     height: 450px;
+		     
+		    width:55%;
+		     float: left;
+		       	padding:5px;
+		     
+		    
+}
+
+#footer {
+		    background-color:black;
+		    color:white;
+		    clear:both;
+		    text-align:center;
+		   	padding:5px;	 	 
+		}
+		
+		#titulo_derecha{
+		
+		background-color: white;
+		
+		height: 20%;
+		
+		
+		}
+
+
+</style>
+
+
+</head>
+
+
+
+<div id="titulo_derecha">
+
+</div>
+
+
+
+
+<div id="titulo">
+
+
+
+
+
+
+<h1>PAPELERIA</h1>
+
+
+
+
+
+</div>
+
+
+
+
+<body  >
+
+
+
+<div id="seccion_slider">
+
+
+<section class="slider-container">
+	
+		<ul id="slider" class="slider-wrapper">
+			
+			<li >
+				
+				<img id="1"  src="public/images/cinco.png" style="width: 800px;  height: 390px;">  
+				
+				
+				
+			</li>
+			
+			
+
+			<li >
+
+				
+				<img id="1"  src="public/images/cuadernos.png" style="width: 800px;  height: 390px;">			
+				
+						
+			</li>
+			
+				<li >
+				
+				<img id="1"  src="public/images/cuatro.png" style="width: 800px;  height: 390px;">  
+				
+				
+				
+			</li>
+			
+			
+
+			<li >
+
+				
+				<img id="1"  src="public/images/2.png" style="width: 800px;  height: 390px;">			
+				
+						
+			</li>
+			
+			
+
+
+			
+			
+					
+			
+			
+		</ul>
+		
+	
+
+		<!-- Sombras -->
+		<div class="shadow"></div>
+
+		<!-- Controles -->
+		
+		<ul id="slider-controls" class="slider-controls"></ul>		
+		
+		<p>
+	<p>
+	<p>
+	<h3 style=" text-align: justify;">Tenemos las mejores marcas para tus productos escolares contamos con Norma , Stilo </h3>
+		
+	</section>
+	<p>
+	
+
+</div>
+
+
+
+<div id="seccion_izquierda">
+
+
+<p>
+<h4>INICIA SESION</h4>
+<p>
+
+#{form @login(), id:'formLogin'}
+
+
+
+    <form action=""  class="form-horizontal">
+    <p>
+        
+   <label class="control-label col-xs-2">Usuario:</label> <input type="text" id="nombre" name="username" size="19" value="${flash.username}" class="form-control" placeholder="Ingrese Usuario" required="required"  style="width: 200px;"/>
+   <p>
+   <label class="control-label col-xs-2">Password:</label> <input type="password"  id="contra"   name="password" size="19"class="form-control"  placeholder="Ingrese Password" required="required"  style="width: 200px;"/><br>
+   <input type="submit" value="ENTRAR"  class="btn btn-primary" onclick="direccionar();"/>
+
+        </form>
+        
+          #{/form}
+
+
+</div>
+
+
+
+<div id="seccion_derecha">
+
+<p>
+<h4>REGISTRATE</h4>
+<p>
+
+
+#{form @Application.registrar_usuario(username,apellido, cedula,  email, password)}
+
+<form  method="post" class="form-horizontal"  name="formacedula">
+
+<p>
+
+
+
+
+<label class="control-label col-xs-2">Nombre</label> <input type="text" pattern="[A-Za-z]+" name="username" class="form-control" placeholder="Ingrese nombre" required="required" style="width: 300px;"/><p>
+<label class="control-label col-xs-2">Apellido</label> <input type="text" name="apellido" class="form-control" placeholder="Ingrese apellido" required="required" style="width: 300px;"/><p>
+<label class="control-label col-xs-2">Cedula</label> <input type="text" name="cedula" class="form-control" placeholder="Ingrese Cedula" required="required" id="txtcedula" onchange="validar_cedula();" style="width: 300px;"/><p>
+<label class="control-label col-xs-2">Email</label> <input type="email" name="email" class="form-control" placeholder="Ingrese email" required="required" style="width: 300px;"/><p>
+<label class="control-label col-xs-2">Password</label> <input type="password" name="password" class="form-control" placeholder="Ingrese password" required="required" style="width: 300px;"/><p>
+
+<input class="btn btn-primary" type="submit" value="Registrar"  />
+#{/form}
+
+</form>
+
+
+<div id="footer">
+<h5>Todos los derechos reservados</h5>
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+<script type="text/javascript">
+function validar_cedula()
+{
+	
+	 var i;
+	 var cedula;
+	 var acumulado;
+	 var cedula = txtcedula.value;
+	 
+	
+	 var instancia;
+	 acumulado=0;
+	 for (i=1;i<=9;i++)
+	 {
+	  if (i%2!=0)
+	  {
+	   instancia=cedula.substring(i-1,i)*2;
+	   if (instancia>9) instancia-=9;
+	  }
+	  else instancia=cedula.substring(i-1,i);
+	  acumulado+=parseInt(instancia);
+	 }
+	 while (acumulado>0)
+	  acumulado-=10;
+	 if (cedula.substring(9,10)!=(acumulado*-1))
+	 {
+	  alert("Cedula no valida ingrese uno correcto !!");
+	 
+	 	 }
+	 else{
+	 alert("Cedula valida  !!");
+	 
+	 }
+	}
+	</script>
+
+</html>
+ 
+ 
+ 
+ 
+
+
+
+
+    
+  
